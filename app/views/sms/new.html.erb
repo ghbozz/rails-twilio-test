@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>Send a message</h2>
+  <%= form_tag(sms_path, :method => "post") do %>
+    <%= label_tag("Phone:") %>
+    <%= text_field_tag(:phone) %>
+    <%= label_tag("Body:") %>
+    <%= text_field_tag(:body) %>
+    <%= submit_tag("Submit") %>
+  <% end %>
+</div>
