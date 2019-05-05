@@ -1,10 +1,9 @@
 <div class="container">
-  <h2>Send a message</h2>
-  <%= form_tag(sms_path, :method => "post") do %>
-    <%= label_tag("Phone:") %>
-    <%= text_field_tag(:phone) %>
-    <%= label_tag("Body:") %>
-    <%= text_field_tag(:body) %>
-    <%= submit_tag("Submit") %>
+  <%= simple_form_for :sms, url: sms_path, method: "POST" do |f| %>
+    <div class="form-group">
+      <%= f.input :phone, input_html: {value: ""}, class: 'form-control' %>
+      <%= f.input :body, as: :text, input_html: {value: ""}, class: 'form-control' %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
   <% end %>
 </div>
